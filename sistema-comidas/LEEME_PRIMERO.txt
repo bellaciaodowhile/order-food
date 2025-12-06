@@ -1,0 +1,235 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║              🍽️  SISTEMA DE CONTROL DE COMIDAS - VERSIÓN 2.0  🍽️            ║
+║                          CON SUPABASE INTEGRADO                              ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          🎉 ¡BIENVENIDO!                                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Este es un sistema completo para gestionar personas y controlar sus comidas
+diarias (desayuno, almuerzo y cena) con registro automático de fecha/hora.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      ⚡ INSTALACIÓN RÁPIDA                                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+1. Instalar dependencias:
+   npm install
+
+2. Ejecutar:
+   npm run dev
+
+3. Abrir navegador:
+   http://localhost:5173
+
+¡Listo! El sistema funcionará con LocalStorage (sin configuración).
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      ☁️ USAR CON SUPABASE (OPCIONAL)                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Para guardar datos en la nube:
+
+1. Lee: INSTALACION_RAPIDA.md (opción 2)
+2. O lee: CONFIGURAR_SUPABASE.md (guía completa)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      ✨ NUEVAS CARACTERÍSTICAS                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+✅ Nombre completo (en lugar de nombre y apellido separados)
+✅ Nombre personalizado para cada comida
+✅ Registro automático de fecha/hora de entrega
+✅ Borde rojo en comidas con personas pendientes
+✅ Integración con Supabase (PostgreSQL en la nube)
+✅ Exportación mejorada con horarios
+✅ Modo fallback con LocalStorage
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      📚 DOCUMENTACIÓN DISPONIBLE                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+PARA EMPEZAR:
+  📄 INSTALACION_RAPIDA.md    - Instalar en 3 pasos
+  📄 README.md                - Información general del proyecto
+
+CONFIGURACIÓN:
+  📄 CONFIGURAR_SUPABASE.md   - Guía completa de Supabase (paso a paso)
+  📄 .env.example             - Plantilla de variables de entorno
+  📄 supabase-schema.sql      - Script SQL para crear tablas
+
+USO DEL SISTEMA:
+  📄 INICIO_RAPIDO.md         - Guía rápida de uso
+  📄 INSTRUCCIONES.md         - Guía detallada de uso
+  📄 ejemplo_exportacion.txt  - Ejemplo de archivo exportado
+
+TÉCNICA:
+  📄 ESTRUCTURA.md            - Arquitectura del código
+  📄 CAMBIOS_SUPABASE.md      - Resumen de cambios v2.0
+  📄 COMANDOS_UTILES.txt      - Comandos útiles de npm/git
+
+PERSONALIZACIÓN:
+  📄 PERSONALIZACION.md       - Cómo personalizar el sistema
+  📄 NOTAS_IMPORTANTES.md     - Información crítica
+
+VISUAL:
+  📄 RESUMEN_VISUAL.txt       - Resumen visual del proyecto
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      🗂️ ESTRUCTURA DEL PROYECTO                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+sistema-comidas/
+├── 📂 src/
+│   ├── 📂 components/
+│   │   ├── PersonasManager.jsx      (Gestión de personas)
+│   │   ├── PersonasManager.css
+│   │   ├── ComidasManager.jsx       (Gestión de comidas)
+│   │   └── ComidasManager.css
+│   ├── 📂 lib/
+│   │   └── supabase.js              (Cliente de Supabase)
+│   ├── 📂 utils/
+│   │   └── storage.js               (Funciones de BD y exportación)
+│   ├── App.jsx                      (Componente principal)
+│   ├── App.css
+│   ├── main.jsx
+│   └── index.css
+│
+├── 📄 supabase-schema.sql           (Script SQL para Supabase)
+├── 📄 .env.example                  (Plantilla de configuración)
+├── 📄 package.json
+└── 📚 Documentación (ver arriba)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      🎯 CASOS DE USO                                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+✅ Comedores escolares
+✅ Empresas y oficinas
+✅ Hospitales y clínicas
+✅ Residencias y hogares
+✅ Eventos y catering
+✅ Campamentos
+✅ Restaurantes institucionales
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      💡 MODOS DE FUNCIONAMIENTO                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+MODO LOCAL (Por defecto):
+  • Sin configuración necesaria
+  • Datos en el navegador (LocalStorage)
+  • Funciona sin internet
+  • Badge: "💾 Modo Local (LocalStorage)"
+
+MODO SUPABASE (Opcional):
+  • Requiere configuración
+  • Datos en la nube (PostgreSQL)
+  • Acceso desde cualquier dispositivo
+  • Badge: "☁️ Conectado a Supabase"
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      🔧 TECNOLOGÍAS UTILIZADAS                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Frontend:
+  • React 18
+  • Vite 5
+  • CSS moderno (Grid, Flexbox, Gradientes)
+
+Backend:
+  • Supabase (PostgreSQL)
+  • LocalStorage (fallback)
+
+Características:
+  • Responsive Design
+  • Triggers automáticos
+  • Vistas optimizadas
+  • Row Level Security
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      📊 BASE DE DATOS                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Tablas:
+  • personas          - Personas registradas
+  • comidas           - Comidas creadas
+  • asistencias       - Registro de quién comió
+
+Vistas:
+  • vista_estadisticas_comidas    - Estadísticas agregadas
+  • vista_detalle_asistencias     - Detalle completo
+
+Funciones:
+  • crear_comida_con_asistencias  - Crear comida + asistencias
+  • set_fecha_hora_entrega        - Registrar hora automáticamente
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      🚀 PRIMEROS PASOS                                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+1. INSTALAR:
+   npm install
+
+2. EJECUTAR:
+   npm run dev
+
+3. USAR:
+   • Pestaña "👥 Personas" → Agregar personas
+   • Pestaña "📋 Comidas" → Crear comida
+   • Clic en personas → Marcar asistencia
+   • Ver estadísticas en tiempo real
+   • Exportar a TXT cuando quieras
+
+4. OPCIONAL - CONFIGURAR SUPABASE:
+   • Lee CONFIGURAR_SUPABASE.md
+   • Ejecuta supabase-schema.sql
+   • Configura .env
+   • Reinicia el servidor
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      ⚠️ IMPORTANTE                                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+• El archivo .env NO debe subirse a Git (ya está en .gitignore)
+• Exporta regularmente a TXT para tener respaldo
+• En modo Local, los datos son específicos de cada navegador
+• En modo Supabase, los datos están en la nube
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      🆘 AYUDA                                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+¿Problemas al instalar?
+  → Lee INSTALACION_RAPIDA.md
+
+¿Cómo usar el sistema?
+  → Lee INSTRUCCIONES.md
+
+¿Cómo configurar Supabase?
+  → Lee CONFIGURAR_SUPABASE.md
+
+¿Qué cambió en v2.0?
+  → Lee CAMBIOS_SUPABASE.md
+
+¿Comandos útiles?
+  → Lee COMANDOS_UTILES.txt
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      📞 SOPORTE                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+Documentación de React:    https://react.dev
+Documentación de Vite:     https://vitejs.dev
+Documentación de Supabase: https://supabase.com/docs
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    ¡DISFRUTA DEL SISTEMA! 🎉                                 ║
+║                                                                              ║
+║              Versión 2.0 - Diciembre 2025 - Con Supabase                    ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,201 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    🍽️  SISTEMA DE CONTROL DE COMIDAS  🍽️                    ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                              📋 CARACTERÍSTICAS                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  ✅ Gestión de Personas
+     • Agregar personas con nombre y apellido
+     • Editar información de personas
+     • Eliminar personas
+     • Lista visual con tarjetas
+
+  ✅ Control de Comidas
+     • Crear Desayuno 🌅
+     • Crear Almuerzo ☀️
+     • Crear Cena 🌙
+     • Fecha automática
+
+  ✅ Registro de Asistencia
+     • Marcar quién comió con un clic
+     • Estadísticas en tiempo real
+     • Visual claro (Verde ✅ / Gris ⏳)
+
+  ✅ Historial Completo
+     • Ver todas las comidas anteriores
+     • Estadísticas por comida
+     • Eliminar registros antiguos
+
+  ✅ Exportación de Datos
+     • Descargar archivo TXT
+     • Formato legible
+     • Respaldo completo
+
+  ✅ Diseño Moderno
+     • Colores atractivos (morado/azul)
+     • Responsivo (móvil/tablet/desktop)
+     • Animaciones suaves
+     • Interfaz intuitiva
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                            🚀 INICIO RÁPIDO                                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  1️⃣  Instalar dependencias:
+      npm install
+
+  2️⃣  Ejecutar servidor de desarrollo:
+      npm run dev
+
+  3️⃣  Abrir en navegador:
+      http://localhost:5173
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          📁 ESTRUCTURA DEL PROYECTO                          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  sistema-comidas/
+  │
+  ├── 📂 src/
+  │   ├── 📂 components/
+  │   │   ├── PersonasManager.jsx    (Gestión de personas)
+  │   │   ├── PersonasManager.css
+  │   │   ├── ComidasManager.jsx     (Gestión de comidas)
+  │   │   └── ComidasManager.css
+  │   │
+  │   ├── 📂 utils/
+  │   │   └── storage.js             (LocalStorage y exportación)
+  │   │
+  │   ├── App.jsx                    (Componente principal)
+  │   ├── App.css
+  │   ├── main.jsx                   (Punto de entrada)
+  │   └── index.css
+  │
+  ├── 📂 public/                     (Archivos estáticos)
+  │
+  ├── 📄 index.html                  (HTML principal)
+  ├── 📄 package.json                (Dependencias)
+  ├── 📄 vite.config.js              (Configuración)
+  │
+  └── 📚 Documentación:
+      ├── README.md                  (Información general)
+      ├── INICIO_RAPIDO.md           (Guía rápida)
+      ├── INSTRUCCIONES.md           (Guía detallada)
+      ├── ESTRUCTURA.md              (Arquitectura)
+      ├── PERSONALIZACION.md         (Cómo personalizar)
+      ├── NOTAS_IMPORTANTES.md       (Información crítica)
+      └── ejemplo_exportacion.txt    (Ejemplo de exportación)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                            💡 FLUJO DE USO                                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  1. REGISTRAR PERSONAS
+     ↓
+     Pestaña "👥 Personas" → Ingresar nombre y apellido → Agregar
+
+  2. CREAR COMIDA
+     ↓
+     Pestaña "📋 Comidas" → Seleccionar tipo → Crear
+
+  3. MARCAR ASISTENCIA
+     ↓
+     Clic en cada persona → Verde ✅ = Comió / Gris ⏳ = Pendiente
+
+  4. VER ESTADÍSTICAS
+     ↓
+     Total | Comieron | Faltan (actualización en tiempo real)
+
+  5. EXPORTAR DATOS
+     ↓
+     Botón "💾 Exportar a TXT" → Descargar archivo
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          🎨 TECNOLOGÍAS UTILIZADAS                           │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  ⚛️  React 18          - Biblioteca de UI
+  ⚡  Vite 5            - Build tool y dev server
+  🎨  CSS Moderno       - Gradientes, Grid, Flexbox
+  💾  LocalStorage      - Persistencia de datos
+  📱  Responsive Design - Mobile-first
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                            📊 DATOS GUARDADOS                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Personas:
+  {
+    id: 123456789,
+    nombre: "Juan",
+    apellido: "Pérez"
+  }
+
+  Comidas:
+  {
+    id: 123456789,
+    tipo: "Desayuno",
+    fecha: "5 de diciembre de 2025",
+    asistencias: [
+      { personaId: 123456789, comio: true }
+    ]
+  }
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          ⚠️  NOTAS IMPORTANTES                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  • Los datos se guardan en LocalStorage del navegador
+  • Exporta regularmente para tener respaldo
+  • Funciona sin conexión a internet
+  • Cada navegador tiene sus propios datos
+  • Compatible con móviles, tablets y desktop
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                            🎯 CASOS DE USO                                   │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  🏫 Comedores escolares
+  🏢 Empresas y oficinas
+  🏥 Hospitales y clínicas
+  🏠 Residencias y hogares
+  🎉 Eventos y catering
+  ⛺ Campamentos
+  🍽️ Restaurantes institucionales
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          📚 DOCUMENTACIÓN                                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Para más información, consulta:
+
+  • INICIO_RAPIDO.md       → Empezar en 3 pasos
+  • INSTRUCCIONES.md       → Guía completa de uso
+  • ESTRUCTURA.md          → Arquitectura del código
+  • PERSONALIZACION.md     → Cómo personalizar
+  • NOTAS_IMPORTANTES.md   → Información crítica
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                            ✨ CARACTERÍSTICAS DESTACADAS                     │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  🎨 Diseño moderno con gradientes morados y azules
+  📱 100% responsivo - se adapta a cualquier pantalla
+  ⚡ Rápido y ligero - sin dependencias pesadas
+  💾 Guardado automático - no perderás datos
+  🔒 Privado y seguro - datos solo en tu navegador
+  🌐 Sin servidor - funciona completamente offline
+  🎯 Intuitivo - fácil de usar sin capacitación
+  ♿ Accesible - botones grandes y claros
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                        ¡LISTO PARA USAR! 🎉                                  ║
+║                                                                              ║
+║                    Ejecuta: npm install && npm run dev                       ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,266 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                         📝 COMANDOS ÚTILES                                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          🚀 COMANDOS PRINCIPALES                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Instalar dependencias:
+  $ npm install
+
+  Ejecutar en modo desarrollo:
+  $ npm run dev
+
+  Compilar para producción:
+  $ npm run build
+
+  Vista previa de la build:
+  $ npm run preview
+
+  Ejecutar linter:
+  $ npm run lint
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        🔧 COMANDOS DE MANTENIMIENTO                          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Actualizar dependencias:
+  $ npm update
+
+  Ver dependencias desactualizadas:
+  $ npm outdated
+
+  Limpiar caché de npm:
+  $ npm cache clean --force
+
+  Reinstalar todo desde cero:
+  $ rm -rf node_modules package-lock.json
+  $ npm install
+
+  Ver versión de Node.js:
+  $ node --version
+
+  Ver versión de npm:
+  $ npm --version
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                          🐛 COMANDOS DE DEBUG                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Ver logs detallados:
+  $ npm run dev --verbose
+
+  Ejecutar con puerto específico:
+  $ npm run dev -- --port 3000
+
+  Ver información del proyecto:
+  $ npm list
+
+  Ver información de una dependencia:
+  $ npm info react
+
+  Verificar problemas de seguridad:
+  $ npm audit
+
+  Corregir problemas de seguridad:
+  $ npm audit fix
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        📦 COMANDOS DE PRODUCCIÓN                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Compilar para producción:
+  $ npm run build
+
+  Los archivos se generan en: dist/
+
+  Probar la build localmente:
+  $ npm run preview
+
+  Analizar tamaño del bundle:
+  $ npm run build -- --mode production
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        🌐 COMANDOS DE DESPLIEGUE                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Desplegar en Vercel:
+  $ npm install -g vercel
+  $ vercel
+
+  Desplegar en Netlify:
+  $ npm install -g netlify-cli
+  $ netlify deploy
+
+  Desplegar en GitHub Pages:
+  1. Compilar: npm run build
+  2. Subir carpeta dist/ a GitHub
+  3. Configurar en Settings → Pages
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        🔍 COMANDOS DE INSPECCIÓN                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Ver estructura del proyecto:
+  $ tree -L 2 (Linux/Mac)
+  $ dir /s /b (Windows)
+
+  Ver tamaño de node_modules:
+  $ du -sh node_modules (Linux/Mac)
+  $ dir node_modules (Windows)
+
+  Contar líneas de código:
+  $ find src -name "*.jsx" -o -name "*.js" | xargs wc -l
+
+  Ver archivos más grandes:
+  $ du -ah dist/ | sort -rh | head -20
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        🎨 COMANDOS DE DESARROLLO                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Abrir en navegador automáticamente:
+  $ npm run dev -- --open
+
+  Ejecutar en modo host (accesible en red local):
+  $ npm run dev -- --host
+
+  Ver en dispositivos móviles:
+  1. $ npm run dev -- --host
+  2. Abrir http://TU_IP:5173 en el móvil
+
+  Limpiar caché de Vite:
+  $ rm -rf node_modules/.vite
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        📊 COMANDOS DE ANÁLISIS                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Ver dependencias del proyecto:
+  $ npm list --depth=0
+
+  Ver dependencias de desarrollo:
+  $ npm list --dev
+
+  Ver dependencias de producción:
+  $ npm list --prod
+
+  Buscar paquetes en npm:
+  $ npm search react
+
+  Ver información de un paquete:
+  $ npm view react
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        🔄 COMANDOS DE GIT                                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Inicializar repositorio:
+  $ git init
+
+  Agregar archivos:
+  $ git add .
+
+  Hacer commit:
+  $ git commit -m "Mensaje del commit"
+
+  Ver estado:
+  $ git status
+
+  Ver historial:
+  $ git log --oneline
+
+  Crear rama:
+  $ git branch nombre-rama
+
+  Cambiar de rama:
+  $ git checkout nombre-rama
+
+  Subir a GitHub:
+  $ git remote add origin URL_DEL_REPO
+  $ git push -u origin main
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        💾 COMANDOS DE RESPALDO                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Crear backup del proyecto (sin node_modules):
+  $ tar -czf backup.tar.gz --exclude=node_modules .
+
+  Restaurar backup:
+  $ tar -xzf backup.tar.gz
+
+  Copiar proyecto a otra ubicación:
+  $ cp -r . /ruta/destino (Linux/Mac)
+  $ xcopy /E /I . C:\ruta\destino (Windows)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        🎯 ATAJOS DE TECLADO                                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  En el navegador:
+
+  Abrir DevTools:
+  Ctrl + Shift + I (Windows/Linux)
+  Cmd + Option + I (Mac)
+
+  Recargar página:
+  Ctrl + R (Windows/Linux)
+  Cmd + R (Mac)
+
+  Recargar sin caché:
+  Ctrl + Shift + R (Windows/Linux)
+  Cmd + Shift + R (Mac)
+
+  Abrir consola:
+  F12
+
+  Inspeccionar elemento:
+  Ctrl + Shift + C (Windows/Linux)
+  Cmd + Shift + C (Mac)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        📝 COMANDOS DE EDITOR                                 │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Abrir en VS Code:
+  $ code .
+
+  Abrir archivo específico:
+  $ code src/App.jsx
+
+  Instalar extensiones recomendadas:
+  - ES7+ React/Redux/React-Native snippets
+  - Prettier - Code formatter
+  - ESLint
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                        🚨 COMANDOS DE EMERGENCIA                             │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  Si nada funciona:
+
+  1. Limpiar todo:
+     $ rm -rf node_modules package-lock.json
+     $ npm cache clean --force
+
+  2. Reinstalar:
+     $ npm install
+
+  3. Reiniciar:
+     $ npm run dev
+
+  Si el puerto está ocupado:
+  $ npm run dev -- --port 3000
+
+  Si hay errores de permisos:
+  $ sudo npm install (Linux/Mac)
+  Ejecutar como administrador (Windows)
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    💡 CONSEJO: Guarda este archivo                           ║
+║                    para tener los comandos siempre a mano                    ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
