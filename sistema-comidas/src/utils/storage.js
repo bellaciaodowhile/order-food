@@ -283,7 +283,7 @@ export const exportToTxt = async () => {
     
     if (isSupabaseConfigured()) {
       content += `Total personas: ${comida.total_personas}\n`;
-      content += `Comieron: ${comida.comieron}\n`;
+      content += `Entregadas: ${comida.comieron}\n`;
       content += `Pendientes: ${comida.faltan}\n`;
       
       // Obtener detalle de asistencias
@@ -300,7 +300,7 @@ export const exportToTxt = async () => {
       const total = comida.asistencias?.length || 0;
       const comieron = comida.asistencias?.filter(a => a.comio).length || 0;
       content += `Total personas: ${total}\n`;
-      content += `Comieron: ${comieron}\n`;
+      content += `Entregadas: ${comieron}\n`;
       content += `Pendientes: ${total - comieron}\n`;
       
       content += '\nDetalle:\n';

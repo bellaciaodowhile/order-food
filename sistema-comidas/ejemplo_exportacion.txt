@@ -18,7 +18,7 @@ Nombre: Desayuno del Viernes
 Tipo: Desayuno
 Fecha: 5/12/2025
 Total personas: 5
-Comieron: 4
+Entregadas: 4
 Pendientes: 1
 
 Detalle:
@@ -33,7 +33,7 @@ Nombre: Almuerzo Especial
 Tipo: Almuerzo
 Fecha: 5/12/2025
 Total personas: 5
-Comieron: 5
+Entregadas: 5
 Pendientes: 0
 
 Detalle:
@@ -48,7 +48,7 @@ Nombre: Cena de Fin de Semana
 Tipo: Cena
 Fecha: 4/12/2025
 Total personas: 5
-Comieron: 3
+Entregadas: 3
 Pendientes: 2
 
 Detalle:

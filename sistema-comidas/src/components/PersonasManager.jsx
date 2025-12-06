@@ -79,7 +79,7 @@ function PersonasManager({ onPersonasChange }) {
 
   return (
     <div className="personas-manager">
-      <h2>👥 Gestión de Personas</h2>
+      <h2>Gestión de Personas</h2>
       
       <form onSubmit={handleSubmit} className="persona-form">
         <div className="form-group">

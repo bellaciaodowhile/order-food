@@ -1,7 +1,42 @@
+.comidas-manager {
+  position: relative;
+}
+
 .comidas-manager h2 {
   color: #667eea;
   margin-bottom: 25px;
   font-size: 1.8rem;
+}
+
+.btn-historial-mobile {
+  display: none;
+}
+
+.btn-historial-mobile-sticky {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 0 0 12px 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-historial-mobile-sticky:hover {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-historial-mobile-sticky:active {
+  transform: scale(0.98);
 }
 
 .header-section {
@@ -118,6 +153,7 @@
   border-radius: 15px;
   margin-bottom: 30px;
   color: white;
+  scroll-margin-top: 20px;
 }
 
 .comida-header {
@@ -446,6 +482,101 @@
   font-size: 1.1rem;
 }
 
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #667eea;
+  font-size: 1.5rem;
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #999;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.btn-close-modal:hover {
+  background: #f0f0f0;
+  color: #667eea;
+}
+
+.modal-body {
+  padding: 20px 25px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.search-box-modal {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.comidas-list-modal {
+  display: grid;
+  gap: 12px;
+}
+
 @media (max-width: 768px) {
   .header-section {
     flex-direction: column;
@@ -494,5 +625,33 @@
 
   .search-box-historial {
     max-width: 100%;
+  }
+
+  /* Mostrar botón de historial sticky en móviles */
+  .btn-historial-mobile-sticky {
+    display: block;
+  }
+
+  /* Ocultar historial en móviles (se muestra en modal) */
+  .historial-section {
+    display: none;
+  }
+
+  /* Ajustar padding del contenedor en móviles */
+  .comidas-manager {
+    padding-top: 0;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+    margin: 10px;
+  }
+
+  .modal-header {
+    padding: 15px 20px;
+  }
+
+  .modal-body {
+    padding: 15px 20px;
   }
 }

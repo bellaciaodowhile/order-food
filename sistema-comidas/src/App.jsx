@@ -13,12 +13,6 @@ function App() {
       <header className="header">
         <h1>🍽️ Sistema de Control de Comidas</h1>
         <p>Gestiona personas y registra sus comidas diarias</p>
-        {usingSupabase && (
-          <span className="badge-supabase">☁️ Conectado a Supabase</span>
-        )}
-        {!usingSupabase && (
-          <span className="badge-local">💾 Modo Local (LocalStorage)</span>
-        )}
       </header>
 
       <nav className="tabs">

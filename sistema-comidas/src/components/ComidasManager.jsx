@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './ComidasManager.css';
 import { 
   getPersonas, 
@@ -13,6 +13,7 @@ import { isSupabaseConfigured } from '../lib/supabase';
 
 function ComidasManager() {
   const [personas, setPersonas] = useState([]);
+  const comidaActivaRef = useRef(null);
   const [comidas, setComidas] = useState([]);
   const [selectedTipo, setSelectedTipo] = useState('');
   const [nombreComida, setNombreComida] = useState('');
@@ -21,6 +22,7 @@ function ComidasManager() {
   const [loading, setLoading] = useState(false);
   const [busquedaComida, setBusquedaComida] = useState('');
   const [busquedaPersona, setBusquedaPersona] = useState('');
+  const [showHistorialModal, setShowHistorialModal] = useState(false);
 
   const tipos = ['Desayuno', 'Almuerzo', 'Cena'];
 
@@ -133,6 +135,16 @@ function ComidasManager() {
 
   const handleSelectComida = async (comida) => {
     setSelectedComida(comida);
+    
+    // Hacer scroll a la comida activa en móviles
+    setTimeout(() => {
+      if (comidaActivaRef.current && window.innerWidth <= 768) {
+        comidaActivaRef.current.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start'
+        });
+      }
+    }, 100);
   };
 
   const getEstadisticas = (comida) => {
@@ -168,6 +180,13 @@ function ComidasManager() {
 
   return (
     <div className="comidas-manager">
+      <button 
+        className="btn-historial-mobile-sticky"
+        onClick={() => setShowHistorialModal(true)}
+      >
+        📋 Ver Historial de Comidas
+      </button>
+
       <div className="header-section">
         <h2>Gestión de Comidas</h2>
         <button onClick={handleExportarTxt} className="btn btn-export" disabled={loading}>
@@ -210,7 +229,7 @@ function ComidasManager() {
       </div>
 
       {selectedComida && (
-        <div className="comida-activa">
+        <div className="comida-activa" ref={comidaActivaRef}>
           <div className="comida-header">
             <div>
               <h3>
@@ -231,7 +250,7 @@ function ComidasManager() {
                 <span className="stat-value">{getEstadisticas(selectedComida).total}</span>
               </div>
               <div className="stat success">
-                <span className="stat-label">Comieron:</span>
+                <span className="stat-label">Entregadas:</span>
                 <span className="stat-value">{getEstadisticas(selectedComida).comieron}</span>
               </div>
               <div className="stat pending">
@@ -290,7 +309,7 @@ function ComidasManager() {
                     )}
                   </div>
                   <span className="estado">
-                    {comio ? '✅ Comió' : '⏳ Pendiente'}
+                    {comio ? '✅ Entregada' : '⏳ Pendiente'}
                   </span>
                 </div>
               );
@@ -374,6 +393,100 @@ function ComidasManager() {
           </div>
         )}
       </div>
+
+      {/* Modal de Historial para móviles */}
+      {showHistorialModal && (
+        <div className="modal-overlay" onClick={() => setShowHistorialModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>📋 Historial de Comidas</h3>
+              <button 
+                className="btn-close-modal"
+                onClick={() => setShowHistorialModal(false)}
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="modal-body">
+              <div className="search-box-modal">
+                <input
+                  type="text"
+                  placeholder="🔍 Buscar comida..."
+                  value={busquedaComida}
+                  onChange={(e) => setBusquedaComida(e.target.value)}
+                  className="input-search"
+                />
+                {busquedaComida && (
+                  <button 
+                    onClick={() => setBusquedaComida('')} 
+                    className="btn-clear-search"
+                    title="Limpiar búsqueda"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+
+              {loading && comidas.length === 0 ? (
+                <p className="empty-message">⏳ Cargando...</p>
+              ) : comidas.length === 0 ? (
+                <p className="empty-message">No hay comidas registradas aún</p>
+              ) : comidas.filter(comida => 
+                  comida.nombre.toLowerCase().includes(busquedaComida.toLowerCase()) ||
+                  comida.tipo.toLowerCase().includes(busquedaComida.toLowerCase())
+                ).length === 0 ? (
+                <p className="empty-message">No se encontraron comidas con "{busquedaComida}"</p>
+              ) : (
+                <div className="comidas-list-modal">
+                  {comidas
+                    .filter(comida => 
+                      comida.nombre.toLowerCase().includes(busquedaComida.toLowerCase()) ||
+                      comida.tipo.toLowerCase().includes(busquedaComida.toLowerCase())
+                    )
+                    .map(comida => {
+                    const stats = getEstadisticas(comida);
+                    const tienePendientes = stats.faltan > 0;
+                    return (
+                      <div 
+                        key={comida.id} 
+                        className={`comida-card ${selectedComida?.id === comida.id ? 'active' : ''} ${tienePendientes ? 'pendientes' : ''}`}
+                        onClick={() => {
+                          handleSelectComida(comida);
+                          setShowHistorialModal(false);
+                        }}
+                      >
+                        <div className="comida-info">
+                          <h4>
+                            {comida.tipo === 'Desayuno' && '🌅'}
+                            {comida.tipo === 'Almuerzo' && '☀️'}
+                            {comida.tipo === 'Cena' && '🌙'}
+                            {' '}{comida.nombre}
+                          </h4>
+                          <p className="fecha-small">{new Date(comida.fecha).toLocaleDateString('es-ES')}</p>
+                        </div>
+                        <div className="comida-stats">
+                          <span className="badge">{stats.comieron}/{stats.total}</span>
+                        </div>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleEliminarComida(comida.id);
+                          }}
+                          className="btn-delete-small"
+                          disabled={loading}
+                        >
+                          🗑️
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
